@@ -19,6 +19,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./azure-cosmos-crud-api
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -26,10 +28,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: Use Node Js
         uses: actions/setup-node@v1
+        
+      - name: Install node modules
+        run: npm Install
+        working-directory: ${{env.working-directory}} 
 
       # Runs a single command using the runners shell
       - name: Run unit tests
-        run: cd azure-cosmos-crud-api && npm test
+        run: npm test
+        working-directory: ${{working-directory}}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
