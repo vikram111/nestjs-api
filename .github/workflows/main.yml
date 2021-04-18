@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-node@v1
 
       - name: Install node modules
-        run: npm Install
+        run: npm install
         working-directory: ${{env.working-directory}} 
 
       # Runs a single command using the runners shell
