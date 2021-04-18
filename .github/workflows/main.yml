@@ -28,9 +28,8 @@ jobs:
         uses: actions/setup-node@v1
 
       # Runs a single command using the runners shell
-      - run: cd azure-cosmos-crud-api
       - name: Run unit tests
-        run: npm test
+        run: cd azure-cosmos-crud-api && npm test
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
