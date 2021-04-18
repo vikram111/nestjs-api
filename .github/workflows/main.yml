@@ -43,5 +43,5 @@ jobs:
         uses: docker/build-push-action@v2.4.0
       
       - name: Build a docker container
-        run: docker build -t vikramthakur/nestjs-azure-cosmos-api .
+        run: docker build -t vikramthakur/nestjs-azure-cosmos-api -f ./azure-cosmos-crud-api/Dockerfile
         working-directory: ${{env.working-directory}}
