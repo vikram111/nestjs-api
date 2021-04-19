@@ -48,6 +48,7 @@ jobs:
       - name: Build Container 
         run: |
           docker build . -t vikramthakur/nestjs-azure-cosmos-api
+          docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_TOKEN}}
           docker push vikramthakur/nestjs-azure-cosmos-api:latest
       
       #- name: Build a docker container
