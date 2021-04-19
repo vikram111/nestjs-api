@@ -48,7 +48,7 @@ jobs:
       - name: Build Container 
         run: |
           docker build . -t vikramthakur/nestjs-azure-cosmos-api
-          docker push
+          docker push vikramthakur/nestjs-azure-cosmos-api:latest
       
       #- name: Build a docker container
        # run: docker build -t vikramthakur/nestjs-azure-cosmos-api -f ./azure-cosmos-crud-api/Dockerfile
