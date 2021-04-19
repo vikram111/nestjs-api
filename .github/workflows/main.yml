@@ -38,13 +38,17 @@ jobs:
         run: npm test
         working-directory: ${{env.working-directory}}
       
-      - name: Build API
-        run: npm build
+      - name: Run clean build
+        run: |
+            npm run prebuild
+            npm run build
         working-directory: ${{env.working-directory}}
 
       # Runs a set of commands using the runners shell
-      - name: Install docker 
-        run: docker build .
+      - name: Build Container 
+        run: |
+          docker build . -t vikramthakur/nestjs-azure-cosmos-api
+          docker push
       
       #- name: Build a docker container
        # run: docker build -t vikramthakur/nestjs-azure-cosmos-api -f ./azure-cosmos-crud-api/Dockerfile
